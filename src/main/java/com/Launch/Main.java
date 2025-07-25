@@ -46,10 +46,7 @@ public class Main extends Application {
             }
         });
 
-        backButton.setOnAction(e -> {
-            primaryStage.setScene(mainScene);
-        });
-
+        backButton.setOnAction(e -> primaryStage.setScene(mainScene));
 
         // show stage
         primaryStage.show();
