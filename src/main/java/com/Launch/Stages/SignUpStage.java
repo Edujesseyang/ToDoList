@@ -112,14 +112,16 @@ public class SignUpStage extends Stage {
             String passwordStr = password.getText();
             String confirmPasswordStr = confirmPassword.getText();
             if (!Tool.passwordValidCheck(passwordStr, confirmPasswordStr)) {
-                Alert passwordNotMatchAlert = new Alert(Alert.AlertType.WARNING);
-                passwordNotMatchAlert.setTitle("Password Confirmation Error");
-                passwordNotMatchAlert.setHeaderText("Invalid Password");
-                passwordNotMatchAlert.setContentText("Password must contain at least 8 characters.\nIt must contains 2 uppercase, 2 lowercase, and 2 numbers. \nIt should not contains ', < . > ? / : ; \" \' | \\ ~ `'.");
-                passwordNotMatchAlert.showAndWait();
+                popPasswordWarning();
             }
         });
     }
 
-
+    public static void popPasswordWarning() {
+        Alert passwordNotMatchAlert = new Alert(Alert.AlertType.WARNING);
+        passwordNotMatchAlert.setTitle("Password Confirmation Error");
+        passwordNotMatchAlert.setHeaderText("Invalid Password");
+        passwordNotMatchAlert.setContentText("Password must contain at least 8 characters.\nIt must contains 2 uppercase, 2 lowercase, and 2 numbers. \nIt should not contains \", < . > ? / : ; \" ' | \\ ~ `\".");
+        passwordNotMatchAlert.showAndWait();
+    }
 }
