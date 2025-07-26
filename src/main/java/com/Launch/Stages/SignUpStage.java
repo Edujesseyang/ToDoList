@@ -1,5 +1,6 @@
-package com.Launch;
+package com.Launch.Stages;
 
+import com.Launch.Model.Tool;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
@@ -67,7 +68,7 @@ public class SignUpStage extends Stage {
         phone2.setMaxWidth(35);
         phone3.setMaxWidth(45);
 
-        // btns
+        // buttons
         Button confirm = new Button("Confirm");
         confirm.setPadding(new Insets(10));
         Button cancel = new Button("Cancel");
@@ -107,5 +108,18 @@ public class SignUpStage extends Stage {
 
         // btn action
         cancel.setOnAction(e -> stage.close());
+        confirm.setOnAction(e -> {
+            String passwordStr = password.getText();
+            String confirmPasswordStr = confirmPassword.getText();
+            if (!Tool.passwordValidCheck(passwordStr, confirmPasswordStr)) {
+                Alert passwordNotMatchAlert = new Alert(Alert.AlertType.WARNING);
+                passwordNotMatchAlert.setTitle("Password Confirmation Error");
+                passwordNotMatchAlert.setHeaderText("Invalid Password");
+                passwordNotMatchAlert.setContentText("Password must contain at least 8 characters.\nIt must contains 2 uppercase, 2 lowercase, and 2 numbers. \nIt should not contains ', < . > ? / : ; \" \' | \\ ~ `'.");
+                passwordNotMatchAlert.showAndWait();
+            }
+        });
     }
+
+
 }

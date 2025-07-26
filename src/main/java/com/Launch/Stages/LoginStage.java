@@ -1,4 +1,4 @@
-package com.Launch;
+package com.Launch.Stages;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

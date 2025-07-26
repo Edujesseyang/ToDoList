@@ -16,5 +16,14 @@ javafx {
     modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
+dependencies {
+    // 你已有的 JavaFX 依赖
+    implementation "org.openjfx:javafx-controls:21:win"
+    implementation "org.openjfx:javafx-fxml:21:win"
+
+    // ✅ Jackson JSON 序列化库
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+}
+
 
 
